@@ -22,16 +22,20 @@ const CompoundView = () => {
   const goalVal = useField("number", "1000000");
   
   return (
+    <>
+    <h2>The Power of Compounding Small Wins</h2>
     <form>
-      <label> Current Portfolio Value: <input {...startVal}/> </label> 
+      <label> Current Portfolio Value: <input step='100000' {...startVal}/> </label> 
       <br/>
-      <label> Goal Value: <input {...goalVal}/> </label>
-      <br/> <br/>
+      <label> Goal Value: <input step='100000' {...goalVal}/> </label>
+      <div>% away from goal: {calcPercentAway(startVal.value, goalVal.value)}%</div>
+      <br/> 
       <CalcInterestGoal interest="0.5" startVal={startVal.value} endVal={goalVal.value}/>
       <CalcInterestGoal interest="1" startVal={startVal.value} endVal={goalVal.value}/>
       <CalcInterestGoal interest="2" startVal={startVal.value} endVal={goalVal.value}/>
       <CalcInterestGoal interest="5" startVal={startVal.value} endVal={goalVal.value}/>
     </form>
+    </>
   )
 }
 
@@ -43,7 +47,8 @@ const CalcInterestGoal = ({interest, startVal, endVal}) => {
   return (<div>
     <b>{interest}%:</b> {Math.ceil(weeks)} weeks
   </div>)
-
 }
+
+const calcPercentAway = (startVal, endVal) => (Math.round((endVal/startVal - 1)*100))
 
 export default App;
