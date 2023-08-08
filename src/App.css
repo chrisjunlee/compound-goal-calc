@@ -1,26 +1,28 @@
 .appHeader {
   background-color: #282c34;
-  min-height: 5vh;
+  min-height: 6vh;
+  padding: 2rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: calc(1rem + 7vmin)
+  font-size: calc(2rem + 5vmin)
 }
 
 html {
   /* root font size rem is based on */
-  font-size: 2vmin;
+  /* font-size: 2vmin; */
+  font-size: 16px;
 }
 
 body {
-  font-size: 4rem
+  font-size: 5rem
 }
 
 input {
   width: 4em;
-  font-size: 4rem;
+  font-size: 5rem;
   text-align: right;
   border-radius: 1rem;
 }
@@ -34,17 +36,18 @@ input[type=number]:focus {
 }
 
 .container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   box-sizing: border-box;
   display: grid;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .container > * {
   /* border: 1px solid green; */
   flex-direction: row;
-  margin: 4vw 3vw;
+  margin: 1rem 1rem;
 }
 
 .container > * > * {

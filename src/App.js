@@ -26,14 +26,15 @@ const CompoundView = () => {
       <h1 className="appHeader">The Power of Compounding Small Wins</h1>
       <form className="container">
         <label>
-          Portfolio Value: <input step="100000" {...startVal} />{" "}
+          Portfolio Value: <input step="100000" pattern="[0-9]*" inputMode="numeric" {...startVal} />{" "}
         </label>
-        <label>Goal Value: &nbsp; <input step="100000" {...goalVal} />{" "}
+        <label>
+          Goal Value: &nbsp; <input step="100000" pattern="[0-9]*" inputMode="numeric" {...goalVal} />{" "}
         </label>
         <div>
           % away from goal: <i>{calcPercentAway(startVal.value, goalVal.value)}%</i>
         </div>
-        <div>
+        <div className='container'>
           <CalcInterestGoal startVal={startVal.value} endVal={goalVal.value} />
         </div>
       </form>
