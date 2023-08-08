@@ -23,30 +23,43 @@ const CompoundView = () => {
   
   return (
     <>
-    <h2>The Power of Compounding Small Wins</h2>
-    <form>
-      <label> Current Portfolio Value: <input step='100000' {...startVal}/> </label> 
-      <br/>
-      <label> Goal Value: <input step='100000' {...goalVal}/> </label>
-      <div>% away from goal: {calcPercentAway(startVal.value, goalVal.value)}%</div>
-      <br/> 
-      <CalcInterestGoal interest="0.5" startVal={startVal.value} endVal={goalVal.value}/>
-      <CalcInterestGoal interest="1" startVal={startVal.value} endVal={goalVal.value}/>
-      <CalcInterestGoal interest="2" startVal={startVal.value} endVal={goalVal.value}/>
-      <CalcInterestGoal interest="5" startVal={startVal.value} endVal={goalVal.value}/>
-    </form>
+      <h1 className="appHeader">The Power of Compounding Small Wins</h1>
+      <form className="container">
+        <label>
+          Portfolio Value: <input step="100000" {...startVal} />{" "}
+        </label>
+        <label>Goal Value: &nbsp; <input step="100000" {...goalVal} />{" "}
+        </label>
+        <div>
+          % away from goal: <i>{calcPercentAway(startVal.value, goalVal.value)}%</i>
+        </div>
+        <br />
+        <CalcInterestGoal startVal={startVal.value} endVal={goalVal.value} />
+      </form>
     </>
-  )
+  );
+}
+
+const CalcInterestGoal = ({startVal, endVal}) => {
+  return (
+    <table>
+        <CalcInterestRow interest="0.5" startVal={startVal} endVal={endVal} />
+        <CalcInterestRow interest="1" startVal={startVal} endVal={endVal} />
+        <CalcInterestRow interest="2" startVal={startVal} endVal={endVal} />
+        <CalcInterestRow interest="5" startVal={startVal} endVal={endVal} />
+    </table>
+  );
 }
 
 // interest in % (not decimal)
-const CalcInterestGoal = ({interest, startVal, endVal}) => {
+const CalcInterestRow = ({interest, startVal, endVal}) => {
+
   const target = endVal*1.0/startVal
   const weeks = Math.log(target)/Math.log(1 + interest*1.0/100)
-  console.log('target', target)
-  return (<div>
-    <b>{interest}%:</b> {Math.ceil(weeks)} weeks
-  </div>)
+  return (<tr>
+    <td> <b>{interest}%</b> </td>
+    <td> {Math.ceil(weeks)} weeks </td>
+  </tr>)
 }
 
 const calcPercentAway = (startVal, endVal) => (Math.round((endVal/startVal - 1)*100))
