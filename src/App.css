@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  font-size: 5rem
+  font-size: 5rem;
 }
 
 input {
@@ -28,11 +28,11 @@ input {
 }
 
 input[type=number] {
-  transition: width 0.4s ease-in-out;
+  transition: width 0.3s ease-in-out;
 }
 
 input[type=number]:focus {
-  width: 6em;
+  width: 4.2em;
 }
 
 .container {
@@ -56,14 +56,30 @@ input[type=number]:focus {
 }
 
 table {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   border-style: solid;
   border-radius: 1em;
   text-align: right;
   padding: 1rem;
   width: fit-content;
+  white-space: nowrap;
 }
 
 td {
   padding:0.1em 0.2em;
+}
+
+.footer {
+  display: flex;
+  min-height: 10vh;
+  flex-direction: column;
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: right;
+  color: grey;
+  position: sticky;
+}
+
+.footerContent {
+  margin-top: auto;
 }

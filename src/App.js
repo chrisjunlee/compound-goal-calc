@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import preval from "preval.macro";
 
 // custom hook
 const useField = (type, initVal='') => {
@@ -32,12 +33,13 @@ const CompoundView = () => {
           Goal Value: &nbsp; <input step="100000" pattern="[0-9]*" inputMode="numeric" {...goalVal} />{" "}
         </label>
         <div>
-          % away from goal: <i>{calcPercentAway(startVal.value, goalVal.value)}%</i>
+          % away from goal: {calcPercentAway(startVal.value, goalVal.value)}%
         </div>
-        <div className='container'>
+        <div className="container">
           <CalcInterestGoal startVal={startVal.value} endVal={goalVal.value} />
         </div>
       </form>
+        <Footer />
     </>
   );
 }
@@ -62,6 +64,15 @@ const CalcInterestRow = ({interest, startVal, endVal}) => {
     <td> <b>{interest}%</b> </td>
     <td> {Math.ceil(weeks)} weeks </td>
   </tr>)
+}
+
+const Footer = () => {
+  const buildTimestamp = preval`module.exports = new Date().toLocaleString();`;
+  return (
+    <div className="footer">
+      <div className='footerContent'>Last Updated on {buildTimestamp}</div>
+    </div>
+  );
 }
 
 const calcPercentAway = (startVal, endVal) => (Math.round((endVal/startVal - 1)*100))
