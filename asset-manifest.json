@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/compound-goal-calc/static/css/main.7f500f58.css",
-    "main.js": "/compound-goal-calc/static/js/main.07382892.js",
+    "main.css": "/compound-goal-calc/static/css/main.77c116ac.css",
+    "main.js": "/compound-goal-calc/static/js/main.9b7e8642.js",
     "index.html": "/compound-goal-calc/index.html",
-    "main.7f500f58.css.map": "/compound-goal-calc/static/css/main.7f500f58.css.map",
-    "main.07382892.js.map": "/compound-goal-calc/static/js/main.07382892.js.map"
+    "main.77c116ac.css.map": "/compound-goal-calc/static/css/main.77c116ac.css.map",
+    "main.9b7e8642.js.map": "/compound-goal-calc/static/js/main.9b7e8642.js.map"
   },
   "entrypoints": [
-    "static/css/main.7f500f58.css",
-    "static/js/main.07382892.js"
+    "static/css/main.77c116ac.css",
+    "static/js/main.9b7e8642.js"
   ]
 }
