@@ -33,8 +33,9 @@ const CompoundView = () => {
         <div>
           % away from goal: <i>{calcPercentAway(startVal.value, goalVal.value)}%</i>
         </div>
-        <br />
-        <CalcInterestGoal startVal={startVal.value} endVal={goalVal.value} />
+        <div>
+          <CalcInterestGoal startVal={startVal.value} endVal={goalVal.value} />
+        </div>
       </form>
     </>
   );
